@@ -23,15 +23,8 @@ conda activate MuSEE
 ## Directory structure
 ```
 data/
-|-- Construct Wikidata-based/  # All code used to construct the Wikidata-based dataset
 |-- GPT4-based/  # GPT4-based dataset
-    |-- train.json  # Training data
-    |-- val.json  # Validation data
-    |-- test.json  # Test data
 |-- Wikidata-based/  # Wikidata-based dataset
-    |-- train.json  # Training data
-    |-- val.json  # Validation data
-    |-- test.json  # Test data
 |-- nyt/  # New York Times Relation Extraction dataset
 |-- conll04/  # CoNLL04 dataset
 |-- REBEL/  # REBEL dataset

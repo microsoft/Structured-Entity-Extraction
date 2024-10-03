@@ -1,33 +1,85 @@
-# Project
+# Learning to Extract Structured Entities Using Language Models
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+<p align="left">
+    <a href="https://opensource.org/licenses/MIT">
+        <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+</p>
 
-As the maintainer of this project, please make a few updates:
+This is the implementation of our collaboration paper between **MSR** and **Mila**, ["**Learning to Extract Structured Entities Using Language Models**"](https://arxiv.org/pdf/2402.04437), accepted to **EMNLP 2024 Main conference**.
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+## Abstract
+Recent advances in machine learning have significantly impacted the field of information extraction, with Language Models (LMs) playing a pivotal role in extracting structured information from unstructured text. Prior works typically represent information extraction as triplet-centric and use classical metrics such as precision and recall for evaluation. We reformulate the task to be entity-centric, enabling the use of diverse metrics that can provide more insights from various perspectives. We contribute to the field by introducing Structured Entity Extraction and proposing the Approximate Entity Set OverlaP (AESOP) metric, designed to appropriately assess model performance. Later, we introduce a new Multi-stage Structured Entity Extraction (MuSEE) model that harnesses the power of LMs for enhanced effectiveness and efficiency by decomposing the extraction task into multiple stages. Quantitative and human side-by-side evaluations confirm that our model outperforms baselines, offering promising directions for future advancements in structured entity extraction.
 
-## Contributing
+<img src="img/model.png">
+<img src="img/metric.png">
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+## Install Dependencies
+```bash
+conda create -n MuSEE python=3.8 --file requirements.txt
+conda activate MuSEE
+```
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+## Directory structure
+```
+data/
+|-- Construct Wikidata-based/  # All code used to construct the Wikidata-based dataset
+|-- GPT4-based/  # GPT4-based dataset
+    |-- train.json  # Training data
+    |-- val.json  # Validation data
+    |-- test.json  # Test data
+|-- Wikidata-based/  # Wikidata-based dataset
+    |-- train.json  # Training data
+    |-- val.json  # Validation data
+    |-- test.json  # Test data
+|-- nyt/  # New York Times Relation Extraction dataset
+|-- conll04/  # CoNLL04 dataset
+|-- REBEL/  # REBEL dataset
+|-- TREX/  # T-REx dataset
+|-- dataloader_E2_pure.py  # Dataloader for MuSEE model
+model/
+|-- t5_with_t5decoder.py  # base modle architecture for MuSEE
+trainer/
+|-- trainer_E2.py  # Trainer for MuSEE model
+args.py  # Arguments for MuSEE model and running experiments
+experiment_E2.py  # Main file to run experiments
+metric.py  # Calculate different variants of the proposed AESOP metric
+compute_metrics.py  # Calculate metrics for the entire dataset
+requirements.txt  # Required packages
+utils.py  # Utility functions
+```
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Run the code
+```
+python experiment_E2.py \
+    --model_choice=E2 \
+    --dataset=gpt4 \
+    --pretrained_model_name=t5-large \
+    --batch_size=1 \
+    --epochs=100 \
+    --log_wandb=True \
+    --use_lora=True \
+    --lr=1e-4 \
+    --weight_decay=1e-2 \
+    --mode=train \
+    --loss_mode=mean \
+    --use_better_init=True
+```
 
-## Trademarks
+## Citation and Contact
+If you find this this paper useful, please cite our work:
+```
+@inproceedings{wu2024structured,
+    title={Structured Entity Extraction Using Large Language Models},
+    author={Haolun Wu, Ye Yuan, Liana Mikaelyan, Alexander Meulemans, Xue Liu, James Hensman, and Bhaskar Mitra},
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, USA",
+    publisher = "Association for Computational Linguistics",
+}
+```
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+If you have any questions, feel free to contact us through email (haolun.wu@mail.mcgill.ca, ye.yuan3@mail.mcgill.ca) or Github issues. Enjoy!
+
+

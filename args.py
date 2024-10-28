@@ -191,7 +191,7 @@ def parse_args():  # Parse command line arguments
     )
     parser.add_argument(
         "--model_choice",
-        default="E2",
+        default="musee",
         choices=[
             "Single-mask-Multi-Entity-Step1",
             "Single-mask-Multi-Entity-Step2",
@@ -199,7 +199,7 @@ def parse_args():  # Parse command line arguments
             "generative-llm",
             "M1",
             "E1",
-            "E2",
+            "musee",
         ],
         type=str,
     )

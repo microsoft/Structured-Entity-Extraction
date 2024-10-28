@@ -29,13 +29,13 @@ data/
 |-- conll04/  # CoNLL04 dataset
 |-- REBEL/  # REBEL dataset
 |-- TREX/  # T-REx dataset
-|-- dataloader_E2_pure.py  # Dataloader for MuSEE model
+|-- dataloader_musee_pure.py  # Dataloader for MuSEE model
 model/
 |-- t5_with_t5decoder.py  # base modle architecture for MuSEE
 trainer/
-|-- trainer_E2.py  # Trainer for MuSEE model
+|-- trainer_musee.py  # Trainer for MuSEE model
 args.py  # Arguments for MuSEE model and running experiments
-experiment_E2.py  # Main file to run experiments
+experiment_musee.py  # Main file to run experiments
 metric.py  # Calculate different variants of the proposed AESOP metric
 compute_metrics.py  # Calculate metrics for the entire dataset
 requirements.txt  # Required packages
@@ -44,8 +44,8 @@ utils.py  # Utility functions
 
 ## Run the code
 ```
-python experiment_E2.py \
-    --model_choice=E2 \
+python experiment_musee.py \
+    --model_choice=musee \
     --dataset=gpt4 \
     --pretrained_model_name=t5-large \
     --batch_size=1 \

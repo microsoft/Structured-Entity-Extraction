@@ -76,13 +76,13 @@ def experiment(args):
     if args.mode == "test":
         args.batch_size = 1
 
-    if args.model_choice == "E2":
-        from trainer.trainer_E2 import Trainer_E_Pk_Pv
+    if args.model_choice == "MuSEE":
+        from trainer.trainer_musee import Trainer_E_Pk_Pv
 
         trainer = Trainer_E_Pk_Pv()
         if args.log_wandb:
             wandb.login()
-        from data.dataloader_E2_pure import WikiDataStep1Manager
+        from data.dataloader_musee import WikiDataStep1Manager
 
         manager = WikiDataStep1Manager()
 
@@ -214,7 +214,7 @@ def experiment(args):
         # )  # add all-zero row for type 0
         # template = torch.tensor(template).to(device)
         # print("template:", template.shape)
-        from trainer.trainer_E2 import Predictor_E_Pk_Pv
+        from trainer.trainer_musee import Predictor_E_Pk_Pv
 
         model = Predictor_E_Pk_Pv(
             pretrained_model_name=args.pretrained_model_name,
@@ -244,7 +244,7 @@ def experiment(args):
         if args.log_wandb:
             run_name = "lr{}-wd{}-{}".format(args.lr, args.weight_decay, args.loss_mode)
             wandb.init(
-                project="E2-full-{}-{}-{}-lora-{}-init-{}".format(
+                project="MuSEE-full-{}-{}-{}-lora-{}-init-{}".format(
                     data_abbrev,
                     args.pretrained_model_name,
                     args.use_lora,
@@ -256,7 +256,7 @@ def experiment(args):
             )
 
         save_path = (
-            f"saved/best_model/E2/E2_{data_abbrev}_m{args.pretrained_model_name}_"
+            f"saved/best_model/MuSEE/MuSEE_{data_abbrev}_m{args.pretrained_model_name}_"
             f"lr{args.lr}_wd{args.weight_decay}_{args.loss_mode}_lora_{args.use_lora}_init_{args.use_better_init}"
             f"best_model"
         )
@@ -374,7 +374,7 @@ def experiment(args):
 
         elif args.mode == "test":
             save_path = (
-                f"saved/best_model/E2/E2_{data_abbrev}_m{args.pretrained_model_name}_"
+                f"saved/best_model/MuSEE/MuSEE_{data_abbrev}_m{args.pretrained_model_name}_"
                 f"lr{args.lr}_wd{args.weight_decay}_{args.loss_mode}_lora_{args.use_lora}_init_{args.use_better_init}"
                 f"best_model"
             )
@@ -425,7 +425,7 @@ def experiment(args):
 
             # Save to a JSON file
             prediction_path = (
-                f"saved/best_model/E2/saved_json/E2_{data_abbrev}_m{args.pretrained_model_name}_"
+                f"saved/best_model/MuSEE/saved_json/MuSEE_{data_abbrev}_m{args.pretrained_model_name}_"
                 f"lr{args.lr}_wd{args.weight_decay}_{args.loss_mode}_lora_{args.use_lora}_init_{args.use_better_init}.json"
             )
             with open(prediction_path, "w", encoding="utf-8") as file:

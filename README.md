@@ -40,8 +40,6 @@ metric.py  # Calculate different variants of the proposed AESOP metric
 compute_metrics.py  # Calculate metrics for the entire dataset
 requirements.txt  # Required packages
 utils.py  # Utility functions
-
-
 ```
 
 ## Run the code

@@ -22,7 +22,7 @@ conda activate MuSEE
 
 ## Directory structure
 ```
-data/ 
+data/  # Dataset generation code will be released soon due to internal process to go through.
 |-- GPT4-based/  # GPT4-based dataset
 |-- Wikidata-based/  # Wikidata-based dataset
 |-- nyt/  # New York Times Relation Extraction dataset
@@ -41,7 +41,7 @@ compute_metrics.py  # Calculate metrics for the entire dataset
 requirements.txt  # Required packages
 utils.py  # Utility functions
 
-_We will disclose the dataset generation soon due to internal process to go through._
+
 ```
 
 ## Run the code

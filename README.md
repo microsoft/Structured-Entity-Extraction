@@ -22,16 +22,16 @@ conda activate MuSEE
 
 ## Directory structure
 ```
-data/
+data/ 
 |-- GPT4-based/  # GPT4-based dataset
 |-- Wikidata-based/  # Wikidata-based dataset
 |-- nyt/  # New York Times Relation Extraction dataset
 |-- conll04/  # CoNLL04 dataset
 |-- REBEL/  # REBEL dataset
 |-- TREX/  # T-REx dataset
-|-- dataloader_musee_pure.py  # Dataloader for MuSEE model
+|-- dataloader_musee.py  # Dataloader for MuSEE model
 model/
-|-- t5_with_t5decoder.py  # base modle architecture for MuSEE
+|-- t5_with_t5decoder.py  # base model architecture for MuSEE
 trainer/
 |-- trainer_musee.py  # Trainer for MuSEE model
 args.py  # Arguments for MuSEE model and running experiments
@@ -40,6 +40,8 @@ metric.py  # Calculate different variants of the proposed AESOP metric
 compute_metrics.py  # Calculate metrics for the entire dataset
 requirements.txt  # Required packages
 utils.py  # Utility functions
+
+_We will disclose the dataset generation soon due to internal process to go through._
 ```
 
 ## Run the code

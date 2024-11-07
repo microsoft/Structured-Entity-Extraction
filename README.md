@@ -6,6 +6,11 @@
     </a>
 </p>
 
+[![CodeQL](https://github.com/microsoft/Structured-Entity-Extraction/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/microsoft/Structured-Entity-Extraction/actions/workflows/github-code-scanning/codeql)
+
+[![Dependabot Updates](https://github.com/microsoft/Structured-Entity-Extraction/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/microsoft/Structured-Entity-Extraction/actions/workflows/dependabot/dependabot-updates)
+
+
 **[🔥 Oral, top 7% of all accepted papers 🔥]**
 
 ⚙️ This is the implementation of our collaboration between **MSR** and **Mila**, ["**Learning to Extract Structured Entities Using Language Models**"](https://arxiv.org/pdf/2402.04437), accepted to **EMNLP 2024 Main conference**. 

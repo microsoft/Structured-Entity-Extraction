@@ -6,13 +6,14 @@ huggingface-hub==0.23.1
 isort==5.13.2
 matplotlib==3.9.0
 numpy==1.26.4
-pandas==2.2.2
+pandas==2.2.3
 peft==0.11.1
 regex==2024.5.15
 requests==2.32.2
 sentencepiece==0.2.0
-tokenizers==0.19.1
 torch==2.5.1
+tokenizers==0.20.2
+torch==2.3.0
 tqdm==4.66.4
 transformers @ git+https://github.com/huggingface/transformers@bdb9106f247fca48a71eb384be25dbbd29b065a8
 triton==2.3.0

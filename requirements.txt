@@ -11,6 +11,7 @@ peft==0.11.1
 regex==2024.5.15
 requests==2.32.2
 sentencepiece==0.2.0
+torch==2.5.1
 tokenizers==0.20.2
 torch==2.3.0
 tqdm==4.66.4

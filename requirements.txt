@@ -12,7 +12,7 @@ regex==2024.11.6
 requests==2.32.2
 sentencepiece==0.2.0
 torch==2.5.1
-tokenizers==0.20.2
+tokenizers==0.20.3
 torch==2.3.0
 tqdm==4.66.4
 transformers @ git+https://github.com/huggingface/transformers@bdb9106f247fca48a71eb384be25dbbd29b065a8

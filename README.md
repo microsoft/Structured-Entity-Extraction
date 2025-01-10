@@ -11,9 +11,9 @@
 [![Dependabot Updates](https://github.com/microsoft/Structured-Entity-Extraction/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/microsoft/Structured-Entity-Extraction/actions/workflows/dependabot/dependabot-updates)
 
 
-**[🔥 Oral, top 7% of all accepted papers 🔥]**
+**[🔥 Oral Presentation, top 7% of all accepted papers 🔥]**
 
-⚙️ This is the implementation of our collaboration between **MSR** and **Mila**, ["**Learning to Extract Structured Entities Using Language Models**"](https://arxiv.org/pdf/2402.04437), accepted to **EMNLP 2024 Main conference**. 
+⚙️ This is the official implementation of ["**Learning to Extract Structured Entities Using Language Models**"](https://arxiv.org/pdf/2402.04437) (our collaboration between **MSR** and **Mila**), accepted to **EMNLP 2024 Main conference**. 
 
 ## Abstract
 Recent advances in machine learning have significantly impacted the field of information extraction, with Language Models (LMs) playing a pivotal role in extracting structured information from unstructured text. Prior works typically represent information extraction as triplet-centric and use classical metrics such as precision and recall for evaluation. We reformulate the task to be entity-centric, enabling the use of diverse metrics that can provide more insights from various perspectives. We contribute to the field by introducing Structured Entity Extraction and proposing the Approximate Entity Set OverlaP (AESOP) metric, designed to appropriately assess model performance. Later, we introduce a new Multi-stage Structured Entity Extraction (MuSEE) model that harnesses the power of LMs for enhanced effectiveness and efficiency by decomposing the extraction task into multiple stages. Quantitative and human side-by-side evaluations confirm that our model outperforms baselines, offering promising directions for future advancements in structured entity extraction.
@@ -49,7 +49,7 @@ requirements.txt  # Required packages
 utils.py  # Utility functions
 ```
 
-## Run the code
+## Run the training and evaluation
 ```
 python experiment_musee.py \
     --model_choice=musee \

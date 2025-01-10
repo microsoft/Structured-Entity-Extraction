@@ -2,7 +2,7 @@ accelerate==0.30.1
 beautifulsoup4==4.12.3
 black==24.4.2
 flake8==7.0.0
-huggingface-hub==0.23.1
+huggingface-hub==0.27.1
 isort==5.13.2
 matplotlib==3.9.0
 numpy==1.26.4

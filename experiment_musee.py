@@ -392,7 +392,9 @@ def experiment(args):
                 model = model.merge_and_unload()
             else:
                 model.load_state_dict(
-                    torch.load(f"{save_path}.pt", map_location=device)
+                    torch.load(
+                        f"{save_path}.pt", map_location=device, weights_only=True
+                    )
                 )
 
             print(

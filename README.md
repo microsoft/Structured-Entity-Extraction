@@ -66,6 +66,11 @@ python experiment_musee.py \
     --use_better_init=True
 ```
 
+For evaluation with `--mode=test` and `--use_lora=False`, `.pt` checkpoints
+must contain a model state dictionary, as saved by the trainer. They are loaded
+with `weights_only=True`; custom pickled objects are rejected without falling
+back to unrestricted pickle loading.
+
 ## Citation and Contact
 If you find this paper useful, please cite our work:
 ```
@@ -81,5 +86,4 @@ If you find this paper useful, please cite our work:
 ```
 
 💬 If you have any questions, feel free to contact us through email (haolun.wu@mail.mcgill.ca, ye.yuan3@mail.mcgill.ca) or Github issues. Enjoy!
-
 
